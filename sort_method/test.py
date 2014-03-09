@@ -3,28 +3,24 @@ import randata
 import copy
 from sort_methods import * 
 
-class SortTestCase(unittest.TestCase):
+class methodsTestCase(unittest.TestCase):
 
-    def testMultiMethods(self):
-        for x in range(-1, 100):
+    def testSortMethods(self):
+        for count in range(-1, 100):
 
-            arr = randata.get_randata(x)
+            arr = randata.get_randata(count)
 
-            arr1 = copy.copy(arr)
-            arr2 = copy.copy(arr)
-            arr3 = copy.copy(arr)
-            arr4 = copy.copy(arr)
+            rs = [
+                bubble_sort(copy.copy(arr)),
+                insert_sort_0(copy.copy(arr)),
+                insert_sort_1(copy.copy(arr)),
+                shell_sort_0(copy.copy(arr)),
+                shell_sort_1(copy.copy(arr)),
+            ]
 
-            t1 = bubble_sort(arr1)
-            t2 = insert_sort1(arr2)
-            t3 = insert_sort2(arr3)
-            t4 = shell_sort(arr4)
-
-            for y in range(0, x-1):
-                self.failUnless(t1[y] <= t1[y+1])
-                self.failUnless(t2[y] <= t2[y+1])
-                self.failUnless(t3[y] <= t3[y+1])
-                self.failUnless(t4[y] <= t4[y+1])
+            for a in rs:
+                for x in range(0, count-1):
+                    self.failUnless(a[x] <= a[x+1])
 
 
 if __name__ == '__main__':

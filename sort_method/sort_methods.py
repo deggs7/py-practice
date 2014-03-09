@@ -12,7 +12,7 @@ def bubble_sort(t):
     return t
 
 
-def insert_sort1(t):
+def insert_sort_0(t):
     for i in range(1, len(t)):
         k = i - 1
         while k >= 0 and t[i] < t[k]:
@@ -22,7 +22,7 @@ def insert_sort1(t):
     return t
 
 
-def insert_sort2(arr):
+def insert_sort_1(arr):
     for i in range(1, len(arr)):
         x = arr[:i]
         t = arr[i]
@@ -43,7 +43,7 @@ def m_inst(arr, t):
     return arr
         
 
-def shell_sort(arr):
+def shell_sort_0(arr):
     dist = len(arr)/2
     while dist > 0:
         for i in range(dist, len(arr)):
@@ -53,8 +53,8 @@ def shell_sort(arr):
                 j -= dist
         dist /= 2
     return arr
-"""
-def shell_sort(arr):
+
+def shell_sort_1(arr):
     dist = len(arr)/2
     while dist > 0:
         for i in range(dist, len(arr)):
@@ -66,6 +66,5 @@ def shell_sort(arr):
             arr[j] = tmp
         dist /= 2
     return arr
-"""
 
 
