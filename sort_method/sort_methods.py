@@ -35,12 +35,37 @@ def m_inst(arr, t):
     elif len(arr) == 1 and t <= arr[0]:
         arr.insert(0, t)
     else:
-        m = int(round(len(arr) / 2))
+        m = (len(arr) / 2)
         if t < arr[m]:
             arr[:m] = m_inst(arr[:m], t)
         else:
             arr[m:] = m_inst(arr[m:], t)
     return arr
         
+
+def shell_sort(arr):
+    dist = len(arr)/2
+    while dist > 0:
+        for i in range(dist, len(arr)):
+            j = i
+            while j >= dist and arr[j] < arr[j-dist]:
+                arr[j], arr[j-dist] = arr[j-dist], arr[j]
+                j -= dist
+        dist /= 2
+    return arr
+"""
+def shell_sort(arr):
+    dist = len(arr)/2
+    while dist > 0:
+        for i in range(dist, len(arr)):
+            tmp = arr[i]
+            j = i
+            while j >= dist and tmp < arr[j-dist]:
+                arr[j] = arr[j-dist]
+                j -= dist
+            arr[j] = tmp
+        dist /= 2
+    return arr
+"""
 
 
